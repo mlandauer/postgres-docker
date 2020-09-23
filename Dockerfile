@@ -30,7 +30,7 @@ RUN set -x                                                                      
   && curl -fsSL -o wal-g https://github.com/kubedb/wal-g/releases/download/0.2.13-ac/wal-g-alpine-amd64 \
   && chmod 755 wal-g
 
-FROM postgres:12.4-alpine
+FROM postgres:11-alpine
 
 RUN set -x \
   && apk add --update --no-cache ca-certificates
@@ -41,7 +41,7 @@ ENV PGWAL $PGDATA/pg_wal
 ENV INITDB /var/initdb
 ENV WALG_D /etc/wal-g.d/env
 
-COPY  /bin/pg-leader-election /usr/bin/
+COPY  /bin/pg-leader-election-linux-amd64 /usr/bin/
 COPY --from=builder /wal-g /usr/bin/
 
 COPY scripts /scripts
@@ -69,6 +69,6 @@ ENV RESTORE_SWIFT_PREFIX ""
 ENV ARCHIVE_FILE_PREFIX ""
 ENV RESTORE_FILE_PREFIX ""
 
-ENTRYPOINT ["pg-leader-election"]
+ENTRYPOINT ["pg-leader-election-linux-amd64"]
 
 EXPOSE 5432
