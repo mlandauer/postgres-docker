@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63517c09-eb5a-406b-975b-83e9bf6d750c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/pg-leader-election" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/replica/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/replica/run.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,13 +26,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../postgres" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pg-leader-election" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -44,13 +45,26 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2641" y="176" width="467" height="726" key="#Shell_Script" timestamp="1600949153212">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2641" y="176" width="467" height="726" key="#Shell_Script/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1600949153212" />
     <state x="2547" y="229" width="655" height="619" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600765375695">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2547" y="229" width="655" height="619" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1600765375695" />
-    <state x="2610" y="240" width="530" height="598" key="FileChooserDialogImpl" timestamp="1600773646666">
+    <state x="2610" y="240" width="530" height="598" key="FileChooserDialogImpl" timestamp="1600921081927">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2610" y="240" width="530" height="598" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1600773646666" />
+    <state x="2610" y="240" width="530" height="598" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1600921081927" />
+    <state x="733" y="261" width="530" height="598" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1600861822060" />
+    <state x="2244" y="86" key="SettingsEditor" timestamp="1600942516435">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2244" y="86" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1600942516435" />
+    <state x="2500" y="222" width="759" height="634" key="find.popup" timestamp="1600924802463">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2500" y="222" width="759" height="634" key="find.popup/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1600924802463" />
   </component>
 </project>

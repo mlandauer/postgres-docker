@@ -45,11 +45,37 @@ while true; do
   fi
   sleep 2
 done
+if [[ -e "$HOME" ]]; then
+    echo "..........................fjkf"
+  else
+    echo ".................lkdfkl"
+fi
+
+if [[ -e "$PGDATA" ]]; then
+    # start postgres
+    pg_ctl -D "$PGDATA" -w start
+
+    #check if we need to base backup
+    export walPosition="$(psql -h "$PRIMARY_HOST" --no-password --username=postgres  -t --command="select pg_current_wal_lsn();" | sed -e 's/^[[:space:]]*//')"
+    echo "............................. primary wal pos $walPosition"
+
+
+    export mywalPosition="$(psql   -t --command="select pg_current_wal_lsn();" | sed -e 's/^[[:space:]]*//')"
+    echo "............................. replica wal pos $mywalPosition"
+
+    export rcvPosition="$(psql -t --command="select pg_last_wal_receive_lsn();" | sed -e 's/^[[:space:]]*//')"
+    echo "............................. my wal rcv $rcvPosition "
+    # stop server
+    pg_ctl -D "$PGDATA" -m fast -w stop
+fi
 
 # get basebackup
 mkdir -p "$PGDATA"
 rm -rf "$PGDATA"/*
 chmod 0700 "$PGDATA"
+
+
+
 
 pg_basebackup -X fetch --no-password --pgdata "$PGDATA" --username=postgres --host="$PRIMARY_HOST"
 
