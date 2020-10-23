@@ -72,3 +72,4 @@ ENV RESTORE_FILE_PREFIX ""
 ENTRYPOINT ["pg-leader-election-linux-amd64"]
 
 EXPOSE 5432
+EXPOSE 12345

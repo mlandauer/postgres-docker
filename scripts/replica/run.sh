@@ -26,6 +26,7 @@ export ARCHIVE=${ARCHIVE:-}
 # Waiting for running Postgres
 while true; do
   echo "Attempting pg_isready on primary"
+  echo ".....................$PRIMARY_HOST"
   pg_isready --host="$PRIMARY_HOST" --timeout=2 &>/dev/null && break
   # check if current pod became leader itself
   if [[ -e "/tmp/pg-failover-trigger" ]]; then
