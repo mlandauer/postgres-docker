@@ -46,11 +46,7 @@ while true; do
   fi
   sleep 2
 done
-#if [[ -e "$HOME" ]]; then
-#    echo "..........................fjkf"
-#  else
-#    echo ".................lkdfkl"
-#fi
+
 
 if [[ ! -e "$PGDATA" ]]; then
     echo "......................take base basebackup"

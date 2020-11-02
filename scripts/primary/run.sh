@@ -22,8 +22,9 @@ echo "Running as Primary"
 export PGPASSWORD=${POSTGRES_PASSWORD:-postgres}
 
 export ARCHIVE=${ARCHIVE:-}
-
+echo "Running as Primary"
 if [ ! -e "$PGDATA/PG_VERSION" ]; then
+    echo "Running as Primary"
   if [ "$RESTORE" = true ]; then
     echo "Restoring Postgres from base_backup using wal-g"
     /scripts/primary/restore.sh
