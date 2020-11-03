@@ -19,7 +19,7 @@ ENV DEBCONF_NONINTERACTIVE_SEEN true
 
 RUN set -x \
   && apt-get update \
-  && apt-get install -y --no-install-recommends apt-transport-https ca-certificates curl unzip
+  && apt-get install -y --no-install-recommends apt-transport-https ca-certificates curl
 
 #RUN set -x                                                                                                                                              \
 #  && curl -fsSL -o pg-leader-election-binaries.zip https://github.com/kubedb/pg-leader-election/releases/download/v0.1.0/pg-leader-election-binaries.zip \
@@ -41,10 +41,10 @@ ENV PGWAL $PGDATA/pg_wal
 ENV INITDB /var/initdb
 ENV WALG_D /etc/wal-g.d/env
 
-COPY  /bin/pg-leader-election-linux-amd64 /usr/bin/
+#COPY  /bin/pg-leader-election-linux-amd64 /usr/bin/
 COPY --from=builder /wal-g /usr/bin/
 
-COPY scripts /scripts
+#COPY ../../github.com/Emon46/leadertest/scripts /scripts
 
 VOLUME ["$PV"]
 
@@ -71,4 +71,5 @@ ENV RESTORE_FILE_PREFIX ""
 
 
 EXPOSE 5432
+RUN if [[ -e "/run_scripts/run.sh" ]]; then exec /run_scripts/run.sh ; fi
 CMD ["postgres"]
