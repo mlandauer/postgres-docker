@@ -44,7 +44,7 @@ ENV WALG_D /etc/wal-g.d/env
 #COPY  /bin/pg-leader-election-linux-amd64 /usr/bin/
 COPY --from=builder /wal-g /usr/bin/
 
-#COPY ../../github.com/Emon46/leadertest/scripts /scripts
+COPY ./scripts /scripts
 
 VOLUME ["$PV"]
 
@@ -71,5 +71,8 @@ ENV RESTORE_FILE_PREFIX ""
 
 
 EXPOSE 5432
-RUN if [[ -e "/run_scripts/run.sh" ]]; then exec /run_scripts/run.sh ; fi
-CMD ["postgres"]
+#CMD ["postgres"]
+#CMD ["if [ -f /run_scripts/run.sh ]; then /run_scripts/run.sh ; fi ; postgres"]
+ENTRYPOINT ["/scripts/entrypoint.sh"]
+#ENTRYPOINT ["su-exec postgres /scripts/entrypoint.sh"]
+
