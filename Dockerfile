@@ -47,6 +47,7 @@ COPY --from=builder /wal-g /usr/bin/
 COPY ./scripts /scripts
 
 VOLUME ["$PV"]
+#RUN chown postgres /var/pv
 
 ENV STANDBY warm
 ENV RESTORE false
@@ -70,9 +71,6 @@ ENV ARCHIVE_FILE_PREFIX ""
 ENV RESTORE_FILE_PREFIX ""
 
 
-EXPOSE 5432
-#CMD ["postgres"]
-#CMD ["if [ -f /run_scripts/run.sh ]; then /run_scripts/run.sh ; fi ; postgres"]
-ENTRYPOINT ["/scripts/entrypoint.sh"]
-#ENTRYPOINT ["su-exec postgres /scripts/entrypoint.sh"]
 
+#USER postgres
+ENTRYPOINT ["/scripts/entrypoint.sh"]
