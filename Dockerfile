@@ -36,6 +36,7 @@ RUN set -x \
   && apk add --update --no-cache ca-certificates
 
 ENV PV /var/pv
+ENV CERTS $PV/certs
 ENV PGDATA $PV/data
 ENV PGWAL $PGDATA/pg_wal
 ENV INITDB /var/initdb
