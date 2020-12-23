@@ -71,7 +71,13 @@ ENV RESTORE_SWIFT_PREFIX ""
 ENV ARCHIVE_FILE_PREFIX ""
 ENV RESTORE_FILE_PREFIX ""
 
+COPY tini /tini
+RUN chmod +x /tini
 
 
 USER postgres
-ENTRYPOINT ["/scripts/run.sh"]
+ENTRYPOINT ["./tini", "--"]
+CMD ["/scripts/run.sh"]
+
+
+
