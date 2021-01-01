@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -eou pipefail
-
+#going to change this with the check of process id
+rm -f "$PGDATA"/postmaster.pid
 while true; do
     echo "waiting for the role to be decided ..."
     if [[ -e /run_scripts/role/run.sh ]]; then
