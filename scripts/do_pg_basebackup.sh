@@ -3,16 +3,14 @@
 
 set -eou pipefail
 
-if [[ -e "$PGDATA" ]]; then
-    # get basebackup
-    mkdir -p "$PGDATA"
-    rm -rf "$PGDATA"/*
-    chmod 0700 "$PGDATA"
+# get basebackup
+mkdir -p "$PGDATA"
+rm -rf "$PGDATA"/*
+chmod 0700 "$PGDATA"
 
-fi
 
  if [ "$SSL_MODE" = "ON"  ]; then
         pg_basebackup -X fetch  --pgdata "$PGDATA" --username=postgres --host="$PRIMARY_HOST" -d "sslmode=require sslcert=/tls/certs/client/client.crt sslkey=/tls/certs/client/client.key" &>/dev/null
     else
-         pg_basebackup -X fetch --no-password --pgdata "$PGDATA" --username=postgres --host="$PRIMARY_HOST" &>/dev/null
+        pg_basebackup -X fetch --no-password --pgdata "$PGDATA" --username=postgres --host="$PRIMARY_HOST" &>/dev/null
 fi
