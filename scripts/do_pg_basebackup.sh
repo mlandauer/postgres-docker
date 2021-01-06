@@ -7,6 +7,7 @@ set -eou pipefail
 mkdir -p "$PGDATA"
 rm -rf "$PGDATA"/*
 chmod 0700 "$PGDATA"
+echo "attempting pg_basebackup..."
 
 
  if [ "$SSL_MODE" = "ON"  ]; then
