@@ -11,5 +11,5 @@ if [ "$MAJOR_PG_VERSION" = "9" ]; then
 else
     export PGWAL="$PGDATA/pg_wal"
 fi
-#mkdir -p "$PGWAL"/archive_status/
-#rm -rf "$PGWAL"/archive_status/*
+mkdir -p "$PGWAL"/archive_status/
+rm -rf "$PGWAL"/archive_status/*
