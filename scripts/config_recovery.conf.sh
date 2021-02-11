@@ -3,7 +3,7 @@ set -eou pipefail
 
 cp /scripts/recovery.conf /tmp
 echo "recovery_target_timeline = 'latest'" >>/tmp/recovery.conf
-echo "archive_cleanup_command = 'pg_archivecleanup $PGWAL %r'" >>/tmp/recovery.conf
+#echo "archive_cleanup_command = 'pg_archivecleanup $PGWAL %r'" >>/tmp/recovery.conf
 
 # primary_conninfo is used for streaming replication
 if [ "${SSL_MODE+0}" = "ON" ]; then
