@@ -12,5 +12,5 @@ echo "attempting pg_basebackup..."
 if [ "${SSL_MODE+0}" = "ON" ]; then
         pg_basebackup -X fetch  --pgdata "$PGDATA" --username=postgres --host="$PRIMARY_HOST" -d "sslmode=require sslcert=/tls/certs/client/client.crt sslkey=/tls/certs/client/client.key" &>/dev/null
     else
-        pg_basebackup -X fetch --no-password --pgdata "$PGDATA" --username=postgres --host="$PRIMARY_HOST" &>/dev/null
+        pg_basebackup -X fetch --no-password --pgdata "$PGDATA" --username=postgres --host="$PRIMARY_HOST" -d "password=$POSTGRES_PASSWORD" &>/dev/null
 fi
