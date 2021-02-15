@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -eou pipefail
 
-cp /scripts/recovery.conf /tmp
+touch /tmp/recovery.conf
+echo "standby_mode = on" >>/tmp/recovery.conf
+echo "trigger_file = '/run_scripts/tmp/pg-failover-trigger'" >>/tmp/recovery.conf
 echo "recovery_target_timeline = 'latest'" >>/tmp/recovery.conf
 #echo "archive_cleanup_command = 'pg_archivecleanup $PGWAL %r'" >>/tmp/recovery.conf
 
