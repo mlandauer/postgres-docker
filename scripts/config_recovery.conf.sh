@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 set -eou pipefail
 
-cp /scripts/recovery.conf /tmp
-echo "recovery_target_timeline = 'latest'" >>/tmp/recovery.conf
+#cp /scripts/recovery.conf /tmp
 #echo "archive_cleanup_command = 'pg_archivecleanup $PGWAL %r'" >>/tmp/recovery.conf
+touch /tmp/recovery.conf
+echo "standby_mode = on" >>/tmp/recovery.conf
+echo "trigger_file = '/run_scripts/tmp/pg-failover-trigger'" >>/tmp/recovery.conf
+
+echo "recovery_target_timeline = 'latest'" >>/tmp/recovery.conf
 
 # primary_conninfo is used for streaming replication
 if [ "${SSL_MODE+0}" = "ON" ]; then
