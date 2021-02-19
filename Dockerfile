@@ -22,8 +22,6 @@ ENV PGDATA $PV/data
 ENV PGWAL $PGDATA/pg_wal
 ENV INITDB /var/initdb
 
-
-
 COPY ./scripts /scripts
 
 VOLUME ["$PV"]
