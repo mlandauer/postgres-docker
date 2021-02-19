@@ -4,7 +4,7 @@ REGISTRY ?= kubedb
 BIN      := postgres
 IMAGE    := $(REGISTRY)/$(BIN)
 #TAG      := $(shell git describe --exact-match --abbrev=0 2>/dev/null || echo "")
-TAG := 12.4
+TAG := 10.15
 .PHONY: push
 push: container
 	docker push $(IMAGE):$(TAG)
