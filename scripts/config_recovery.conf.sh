@@ -9,7 +9,7 @@ echo "recovery_target_timeline = 'latest'" >>/tmp/recovery.conf
 
 # primary_conninfo is used for streaming replication
 if [ "${SSL_MODE:-0}" = "ON" ]; then
-    echo "primary_conninfo = 'application_name=$HOSTNAME host=$PRIMARY_HOST sslmode=$SSL_MODE sslrootcert=/tls/certs/client/ca.crt sslcert=/tls/certs/client/client.crt sslkey=/tls/certs/client/client.key'" >>/tmp/recovery.conf
+    echo "primary_conninfo = 'application_name=$HOSTNAME host=$PRIMARY_HOST password=$POSTGRES_PASSWORD sslmode=$SSL_MODE sslrootcert=/tls/certs/client/ca.crt sslcert=/tls/certs/client/client.crt sslkey=/tls/certs/client/client.key'" >>/tmp/recovery.conf
 else
     echo "primary_conninfo = 'application_name=$HOSTNAME host=$PRIMARY_HOST password=$POSTGRES_PASSWORD'" >>/tmp/recovery.conf
 fi
