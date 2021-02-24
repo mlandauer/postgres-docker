@@ -6,7 +6,7 @@ set -eou pipefail
 mkdir -p "$PGDATA"
 rm -f "$PGDATA"/recovery.conf
 rm -f "$PGDATA"/recovery.done
-if [ "$MAJOR_PG_VERSION" = "9" ]; then
+if [[ "$MAJOR_PG_VERSION" == "9" ]]; then
     export PGWAL="$PGDATA/pg_xlog"
 else
     export PGWAL="$PGDATA/pg_wal"
