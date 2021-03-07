@@ -26,9 +26,9 @@ RUN set -x                                                                      
   && unzip pg-leader-election-binaries.zip                                                                                                              \
   && chmod 755 pg-leader-election-binaries/linux_amd64/pg-leader-election
 
-RUN set -x                                                                                             \
-  && curl -fsSL -o wal-g https://github.com/kubedb/wal-g/releases/download/0.2.13-ac/wal-g-alpine-amd64 \
-  && chmod 755 wal-g
+# RUN set -x                                                                                             \
+#   && curl -fsSL -o wal-g https://github.com/kubedb/wal-g/releases/download/0.2.13-ac/wal-g-alpine-arm64 \
+#   && chmod 755 wal-g
 
 FROM postgres:11.2-alpine
 
@@ -42,7 +42,7 @@ ENV INITDB /var/initdb
 ENV WALG_D /etc/wal-g.d/env
 
 COPY --from=builder /pg-leader-election-binaries/linux_amd64/pg-leader-election /usr/bin/
-COPY --from=builder /wal-g /usr/bin/
+# COPY --from=builder /wal-g /usr/bin/
 
 COPY scripts /scripts
 
