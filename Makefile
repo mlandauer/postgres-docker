@@ -1,6 +1,6 @@
 SHELL=/bin/bash -o pipefail
 
-REGISTRY ?= kubedb
+REGISTRY ?= mlandauer
 BIN      := postgres
 IMAGE    := $(REGISTRY)/$(BIN)
 TAG      := $(shell git describe --exact-match --abbrev=0 2>/dev/null || echo "")
